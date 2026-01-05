@@ -118,7 +118,7 @@ export default function Testimonials() {
                   ))}
                 </div>
                 
-                <p className="text-gray-600 leading-relaxed flex-grow">"{testimonial.text}"</p>
+                <p className="text-gray-600 leading-relaxed flex-grow">&ldquo;{testimonial.text}&rdquo;</p>
                 
                 <div className={`mt-6 pt-6 border-t border-gray-100`}>
                   <div className={`h-1 w-16 bg-gradient-to-r ${testimonial.gradient} rounded-full`}></div>

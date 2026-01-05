@@ -32,7 +32,7 @@ export default function Contact() {
             Get in Touch
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Have questions? We're here to help you start your nursing journey
+            Have questions? We&apos;re here to help you start your nursing journey
           </p>
         </motion.div>
 
