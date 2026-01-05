@@ -1,0 +1,74 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --border: 214.3 31.8% 91.4%;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-white text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+    overflow-x: hidden;
+  }
+
+  html {
+    @apply scroll-smooth;
+  }
+}
+
+@layer components {
+  .container-custom {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .btn-primary {
+    @apply bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-3 rounded-full font-semibold hover:shadow-xl hover:scale-105 transition-all duration-300;
+  }
+
+  .btn-secondary {
+    @apply bg-white text-blue-600 px-8 py-3 rounded-full font-semibold border-2 border-blue-600 hover:bg-blue-50 hover:scale-105 transition-all duration-300;
+  }
+
+  .gradient-text {
+    @apply bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent;
+  }
+
+  .card-hover {
+    @apply transition-all duration-300 hover:shadow-2xl hover:-translate-y-2;
+  }
+
+  /* Modern glass effect */
+  .glass {
+    @apply bg-white/10 backdrop-blur-xl border border-white/20;
+  }
+
+  /* Smooth gradient backgrounds */
+  .gradient-bg-1 {
+    @apply bg-gradient-to-br from-blue-600 via-purple-600 to-pink-600;
+  }
+
+  .gradient-bg-2 {
+    @apply bg-gradient-to-br from-cyan-500 via-blue-600 to-purple-700;
+  }
+}
+
+/* Custom animations */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+@keyframes pulse-slow {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+
