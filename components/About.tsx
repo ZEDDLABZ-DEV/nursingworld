@@ -8,7 +8,7 @@ export default function About() {
     {
       icon: GraduationCap,
       title: 'Expert Faculty',
-      description: 'Instructors with Master\'s degrees in Nursing and post-doctoral studies, bringing extensive clinical and theoretical experience.',
+      description: 'Instructors with Master&apos;s degrees in Nursing and post-doctoral studies, bringing extensive clinical and theoretical experience.',
       gradient: 'from-blue-500 to-cyan-600',
       iconBg: 'bg-gradient-to-br from-blue-500/10 to-cyan-600/10',
     },
@@ -94,7 +94,7 @@ export default function About() {
             The Nursing World is a comprehensive and trusted learning platform dedicated to empowering internationally educated nurses. Our mission is to educate and support nurses through advanced digital learning solutions, including a robust Learning Management System (LMS), making high-quality nursing education accessible anytime, anywhere.
           </p>
           <p className="text-lg text-gray-600 max-w-4xl mx-auto leading-relaxed">
-            This platform has been developed by highly experienced and qualified instructors who hold Master's degrees in Nursing, with several faculty members having completed post-doctoral studies. Our faculty brings extensive experience in both clinical practice and theoretical education, ensuring high academic standards and practical relevance.
+            This platform has been developed by highly experienced and qualified instructors who hold Master&apos;s degrees in Nursing, with several faculty members having completed post-doctoral studies. Our faculty brings extensive experience in both clinical practice and theoretical education, ensuring high academic standards and practical relevance.
           </p>
         </motion.div>
 

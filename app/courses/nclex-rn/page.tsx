@@ -295,7 +295,7 @@ export default function NCLEXRNCoursePage() {
               Our Success Commitment
             </h2>
             <p className="text-xl text-white/90 max-w-3xl mx-auto">
-              We stand by our promise: Achieve 70% or above in all 21 tests, and you'll clear NCLEX-RN on your first attempt
+              We stand by our promise: Achieve 70% or above in all 21 tests, and you&apos;ll clear NCLEX-RN on your first attempt
             </p>
           </motion.div>
 
