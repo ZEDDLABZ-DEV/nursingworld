@@ -1,9 +1,72 @@
 'use client';
 
+import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Mail, Phone, MapPin, Send, MessageCircle } from 'lucide-react';
+import { Mail, Phone, MapPin, Send, CheckCircle, AlertCircle } from 'lucide-react';
 
 export default function Contact() {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    subject: '',
+    message: '',
+  });
+  const [loading, setLoading] = useState(false);
+  const [status, setStatus] = useState<{
+    type: 'success' | 'error' | null;
+    message: string;
+  }>({ type: null, message: '' });
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setFormData({
+      ...formData,
+      [e.target.id]: e.target.value,
+    });
+  };
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setLoading(true);
+    setStatus({ type: null, message: '' });
+
+    try {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/api/contact`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        setStatus({
+          type: 'success',
+          message: 'Thank you! Your message has been sent successfully.',
+        });
+        setFormData({
+          name: '',
+          email: '',
+          subject: '',
+          message: '',
+        });
+      } else {
+        setStatus({
+          type: 'error',
+          message: data.error || 'Failed to send message. Please try again.',
+        });
+      }
+    } catch (error) {
+      setStatus({
+        type: 'error',
+        message: 'An error occurred. Please try again later.',
+      });
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
     <section id="contact" className="py-24 bg-gradient-to-b from-white to-gray-50 relative overflow-hidden">
       {/* Background decoration */}
@@ -87,22 +150,6 @@ export default function Contact() {
                 </div>
               </motion.div>
             </div>
-
-            <motion.div
-              whileHover={{ scale: 1.02 }}
-              className="p-8 bg-gradient-to-br from-blue-600 to-purple-600 rounded-3xl shadow-xl"
-            >
-              <div className="flex items-center gap-3 mb-3">
-                <MessageCircle className="text-white" size={28} />
-                <h4 className="font-bold text-xl text-white">Need immediate assistance?</h4>
-              </div>
-              <p className="text-white/90 mb-6 leading-relaxed">
-                Our support team is available 24/7 to answer your questions.
-              </p>
-              <button className="w-full bg-white text-blue-600 px-8 py-4 rounded-xl font-bold hover:bg-gray-50 hover:scale-105 transition-all duration-300 shadow-lg">
-                Start Live Chat
-              </button>
-            </motion.div>
           </motion.div>
 
           {/* Contact Form */}
@@ -113,7 +160,27 @@ export default function Contact() {
             viewport={{ once: true }}
             className="bg-white p-10 rounded-3xl shadow-xl border border-gray-100"
           >
-            <form className="space-y-6">
+            <form className="space-y-6" onSubmit={handleSubmit}>
+              {/* Status Message */}
+              {status.type && (
+                <motion.div
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className={`p-4 rounded-xl flex items-center gap-3 ${
+                    status.type === 'success'
+                      ? 'bg-green-50 text-green-800 border border-green-200'
+                      : 'bg-red-50 text-red-800 border border-red-200'
+                  }`}
+                >
+                  {status.type === 'success' ? (
+                    <CheckCircle size={20} className="flex-shrink-0" />
+                  ) : (
+                    <AlertCircle size={20} className="flex-shrink-0" />
+                  )}
+                  <p className="text-sm font-medium">{status.message}</p>
+                </motion.div>
+              )}
+
               <div>
                 <label className="block text-sm font-bold mb-3 text-gray-900" htmlFor="name">
                   Full Name
@@ -121,7 +188,11 @@ export default function Contact() {
                 <input
                   type="text"
                   id="name"
-                  className="w-full px-5 py-4 rounded-xl border-2 border-gray-200 focus:border-blue-500 focus:ring-4 focus:ring-blue-100 outline-none transition-all"
+                  value={formData.name}
+                  onChange={handleChange}
+                  required
+                  disabled={loading}
+                  className="w-full px-5 py-4 rounded-xl border-2 border-gray-200 focus:border-blue-500 focus:ring-4 focus:ring-blue-100 outline-none transition-all disabled:bg-gray-100 disabled:cursor-not-allowed"
                   placeholder="John Doe"
                 />
               </div>
@@ -133,7 +204,11 @@ export default function Contact() {
                 <input
                   type="email"
                   id="email"
-                  className="w-full px-5 py-4 rounded-xl border-2 border-gray-200 focus:border-purple-500 focus:ring-4 focus:ring-purple-100 outline-none transition-all"
+                  value={formData.email}
+                  onChange={handleChange}
+                  required
+                  disabled={loading}
+                  className="w-full px-5 py-4 rounded-xl border-2 border-gray-200 focus:border-purple-500 focus:ring-4 focus:ring-purple-100 outline-none transition-all disabled:bg-gray-100 disabled:cursor-not-allowed"
                   placeholder="john@example.com"
                 />
               </div>
@@ -145,7 +220,11 @@ export default function Contact() {
                 <input
                   type="text"
                   id="subject"
-                  className="w-full px-5 py-4 rounded-xl border-2 border-gray-200 focus:border-blue-500 focus:ring-4 focus:ring-blue-100 outline-none transition-all"
+                  value={formData.subject}
+                  onChange={handleChange}
+                  required
+                  disabled={loading}
+                  className="w-full px-5 py-4 rounded-xl border-2 border-gray-200 focus:border-blue-500 focus:ring-4 focus:ring-blue-100 outline-none transition-all disabled:bg-gray-100 disabled:cursor-not-allowed"
                   placeholder="How can we help?"
                 />
               </div>
@@ -157,17 +236,31 @@ export default function Contact() {
                 <textarea
                   id="message"
                   rows={5}
-                  className="w-full px-5 py-4 rounded-xl border-2 border-gray-200 focus:border-purple-500 focus:ring-4 focus:ring-purple-100 outline-none transition-all resize-none"
+                  value={formData.message}
+                  onChange={handleChange}
+                  required
+                  disabled={loading}
+                  className="w-full px-5 py-4 rounded-xl border-2 border-gray-200 focus:border-purple-500 focus:ring-4 focus:ring-purple-100 outline-none transition-all resize-none disabled:bg-gray-100 disabled:cursor-not-allowed"
                   placeholder="Tell us more about your inquiry..."
                 ></textarea>
               </div>
 
               <button
                 type="submit"
-                className="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white py-4 rounded-xl font-bold hover:shadow-2xl hover:scale-105 transition-all duration-300 flex items-center justify-center gap-2 group"
+                disabled={loading}
+                className="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white py-4 rounded-xl font-bold hover:shadow-2xl hover:scale-105 transition-all duration-300 flex items-center justify-center gap-2 group disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
               >
-                Send Message
-                <Send size={20} className="group-hover:translate-x-1 transition-transform" />
+                {loading ? (
+                  <>
+                    <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+                    Sending...
+                  </>
+                ) : (
+                  <>
+                    Send Message
+                    <Send size={20} className="group-hover:translate-x-1 transition-transform" />
+                  </>
+                )}
               </button>
             </form>
           </motion.div>

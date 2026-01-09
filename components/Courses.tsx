@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { ArrowRight, CheckCircle } from 'lucide-react';
+import Link from 'next/link';
 
 export default function Courses() {
   const courses = [
@@ -13,6 +14,7 @@ export default function Courses() {
       accentColor: 'text-teal-600',
       bgColor: 'bg-teal-50',
       borderColor: 'border-teal-200',
+      link: '/courses/nclex-rn',
     },
     {
       title: 'REx-PN',
@@ -22,6 +24,7 @@ export default function Courses() {
       accentColor: 'text-orange-600',
       bgColor: 'bg-orange-50',
       borderColor: 'border-orange-200',
+      link: 'https://thenursingworld.com/signup/',
     },
     {
       title: 'DHA/ MOH/ HAAD Exam',
@@ -31,6 +34,7 @@ export default function Courses() {
       accentColor: 'text-green-600',
       bgColor: 'bg-green-50',
       borderColor: 'border-green-200',
+      link: 'https://thenursingworld.com/signup/',
     },
     {
       title: 'Norcet/ RRB/ All India nursing competitive exams',
@@ -40,6 +44,7 @@ export default function Courses() {
       accentColor: 'text-purple-600',
       bgColor: 'bg-purple-50',
       borderColor: 'border-purple-200',
+      link: 'https://thenursingworld.com/signup/',
     },
   ];
 
@@ -106,10 +111,21 @@ export default function Courses() {
                   </ul>
                 </div>
                 <div className="p-8 pt-0">
-                  <button className={`w-full bg-gradient-to-r ${course.color} text-white py-4 rounded-xl font-bold hover:shadow-xl hover:scale-105 transition-all duration-300 flex items-center justify-center gap-2 group`}>
-                    Learn more
-                    <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
-                  </button>
+                  {course.link?.startsWith('http') ? (
+                    <a href={course.link} target="_blank" rel="noopener noreferrer" className="block">
+                      <button className={`w-full bg-gradient-to-r ${course.color} text-white py-4 rounded-xl font-bold hover:shadow-xl hover:scale-105 transition-all duration-300 flex items-center justify-center gap-2 group`}>
+                        Learn more
+                        <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+                      </button>
+                    </a>
+                  ) : (
+                    <Link href={course.link || '#'} className="block">
+                      <button className={`w-full bg-gradient-to-r ${course.color} text-white py-4 rounded-xl font-bold hover:shadow-xl hover:scale-105 transition-all duration-300 flex items-center justify-center gap-2 group`}>
+                        Learn more
+                        <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+                      </button>
+                    </Link>
+                  )}
                 </div>
               </div>
             </motion.div>

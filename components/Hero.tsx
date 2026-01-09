@@ -5,7 +5,7 @@ import { ArrowRight, BookOpen, Users, Award } from 'lucide-react';
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-36 bg-gradient-to-br from-blue-50 via-cyan-50 to-purple-50">
+    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden pt-36 bg-gradient-to-br from-blue-50 via-cyan-50 to-purple-50">
       {/* Background Elements */}
       <div className="absolute inset-0 -z-10">
         <div className="absolute top-20 left-10 w-96 h-96 bg-gradient-to-br from-blue-200 to-cyan-200 rounded-full filter blur-3xl opacity-40 animate-float"></div>
@@ -23,27 +23,31 @@ export default function Hero() {
             className="flex-1 w-full pt-4"
           >
             <h1 className="text-center text-5xl font-bold mb-6 leading-tight">
-              <span className="text-gray-800">Inspiring Aspirations,</span><br />
-              <span className="bg-gradient-to-r from-blue-600 via-cyan-600 to-purple-600 bg-clip-text text-transparent">Shaping Bright Futures</span><br />
-              <span className="text-gray-800">in Nursing</span>
+              <span className="text-gray-800">Empowering Internationally</span><br />
+              <span className="bg-gradient-to-r from-blue-600 via-cyan-600 to-purple-600 bg-clip-text text-transparent">Educated Nurses across</span><br />
+              <span className="text-gray-800">Canada, the USA, Australia, and Dubai.</span>
             </h1>
 
-            <p className=" text-center text-md text-gray-600 mb-8 leading-relaxed max-w-2xl">
+            <p className="text-center text-md text-gray-600 mb-8 leading-relaxed max-w-2xl mx-auto">
               Start your rewarding nursing journey with The Nursing World., where commitment and expertise drive success in NCLEX, DHA, and international nursing exams. Led by our esteemed founder, Ramandeep Kaur, our team is dedicated to helping you reach your goals.
             </p>
 
             <div className="flex justify-center flex-wrap gap-4 mb-12">
-              <button className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-6 py-3 rounded-full font-semibold shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 group text-sm lg:text-base">
-                Get Started Today
-                <ArrowRight className="inline-block ml-2 group-hover:translate-x-1 transition-transform" size={18} />
-              </button>
-              <button className="bg-white text-blue-600 px-6 py-3 rounded-full font-semibold border-2 border-blue-600 hover:bg-blue-50 hover:scale-105 transition-all duration-300 shadow-lg text-sm lg:text-base">
-                Learn More
-              </button>
+              <a href="https://thenursingworld.com/signup/" target="_blank" rel="noopener noreferrer">
+                <button className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-6 py-3 rounded-full font-semibold shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 group text-sm lg:text-base">
+                  Get Started Today
+                  <ArrowRight className="inline-block ml-2 group-hover:translate-x-1 transition-transform" size={18} />
+                </button>
+              </a>
+              <a href="https://thenursingworld.com/signup/" target="_blank" rel="noopener noreferrer">
+                <button className="bg-white text-blue-600 px-6 py-3 rounded-full font-semibold border-2 border-blue-600 hover:bg-blue-50 hover:scale-105 transition-all duration-300 shadow-lg text-sm lg:text-base">
+                  Learn More
+                </button>
+              </a>
             </div>
 
             {/* Stats */}
-            <div className="flex flex-wrap gap-4 lg:gap-6 max-w-2xl">
+            <div className="flex flex-wrap justify-center gap-4 lg:gap-6 max-w-2xl mx-auto">
               <div className="bg-white/60 backdrop-blur-sm rounded-2xl p-4 lg:p-5 shadow-lg flex-1 min-w-[140px]">
                 <div className="flex items-center gap-2 mb-1">
                   <Users className="text-blue-600" size={22} />

@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { Menu, X, GraduationCap } from "lucide-react";
+import { Menu, X, GraduationCap, LogIn } from "lucide-react";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -17,11 +17,12 @@ const Navbar = () => {
   }, []);
 
   const menuItems = [
-    { name: "Home", href: "#home" },
-    { name: "About", href: "#about" },
-    { name: "Courses", href: "#courses" },
-    { name: "Testimonials", href: "#testimonials" },
-    { name: "Contact", href: "#contact" },
+    { name: "Home", href: "/#home" },
+    { name: "About", href: "/#about" },
+    { name: "Courses", href: "/#courses" },
+    { name: "Success Stories", href: "/#success-stories" },
+    { name: "Testimonials", href: "/#testimonials" },
+    { name: "Contact", href: "/#contact" },
   ];
 
   return (
@@ -39,7 +40,7 @@ const Navbar = () => {
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <motion.a
-            href="#home"
+            href="/"
             className="flex items-center space-x-3"
             whileHover={{ scale: 1.05 }}
           >
@@ -52,7 +53,7 @@ const Navbar = () => {
           </motion.a>
 
           {/* Desktop Menu */}
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden md:flex items-center space-x-6">
             {menuItems.map((item, index) => (
               <motion.a
                 key={item.name}
@@ -67,7 +68,17 @@ const Navbar = () => {
               </motion.a>
             ))}
             <motion.a
-              href="#contact"
+              href="https://thenursingworld.com/signup/"
+              target="_blank"
+              rel="noopener noreferrer"
+              whileHover={{ scale: 1.05 }}
+              className="flex items-center gap-2 text-blue-600 hover:text-blue-700 font-semibold transition-colors border-2 border-blue-600 hover:border-blue-700 px-5 py-2.5 rounded-full"
+            >
+              <LogIn size={18} />
+              Login / Signup
+            </motion.a>
+            <motion.a
+              href="/#contact"
               whileHover={{ scale: 1.05 }}
               className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-3 rounded-full font-bold hover:shadow-xl transition-all duration-300"
             >
@@ -103,7 +114,17 @@ const Navbar = () => {
               </a>
             ))}
             <a
-              href="#contact"
+              href="https://thenursingworld.com/signup/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center justify-center gap-2 mt-4 text-center text-blue-600 px-6 py-3 rounded-full font-semibold border-2 border-blue-600 hover:bg-blue-50 transition-colors"
+              onClick={() => setIsOpen(false)}
+            >
+              <LogIn size={18} />
+              Login / Signup
+            </a>
+            <a
+              href="/#contact"
               className="block mt-4 text-center bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-3 rounded-full font-bold shadow-lg"
               onClick={() => setIsOpen(false)}
             >

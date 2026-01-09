@@ -4,6 +4,7 @@ import Hero from "@/components/Hero";
 import About from "@/components/About";
 import Features from "@/components/Features";
 import Courses from "@/components/Courses";
+import SuccessStories from "@/components/SuccessStories";
 import Testimonials from "@/components/Testimonials";
 import Stats from "@/components/Stats";
 import Contact from "@/components/Contact";
@@ -19,6 +20,7 @@ export default function Home() {
       <Stats />
       <Features />
       <Courses />
+      <SuccessStories />
       <Testimonials />
       <Contact />
       <Footer />
