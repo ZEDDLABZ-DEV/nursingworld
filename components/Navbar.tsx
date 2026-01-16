@@ -68,7 +68,7 @@ const Navbar = () => {
               </motion.a>
             ))}
             <motion.a
-              href="https://thenursingworld.com/signup/"
+              href="https://learn.thenursingworld.com"
               target="_blank"
               rel="noopener noreferrer"
               whileHover={{ scale: 1.05 }}
