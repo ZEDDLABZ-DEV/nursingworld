@@ -75,7 +75,7 @@ const Navbar = () => {
               className="flex items-center gap-2 text-blue-600 hover:text-blue-700 font-semibold transition-colors border-2 border-blue-600 hover:border-blue-700 px-5 py-2.5 rounded-full"
             >
               <LogIn size={18} />
-              Login / Signup
+              Login / Sign Up
             </motion.a>
             <motion.a
               href="/#contact"

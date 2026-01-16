@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Mail, Phone, MapPin, Send, CheckCircle, AlertCircle } from 'lucide-react';
+import { Mail, MessageCircle, Send, CheckCircle, AlertCircle } from 'lucide-react';
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -126,28 +126,20 @@ export default function Contact() {
                 whileHover={{ x: 10 }}
                 className="flex items-start gap-4 group"
               >
-                <div className="w-14 h-14 bg-gradient-to-br from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center flex-shrink-0 shadow-lg group-hover:shadow-xl transition-shadow">
-                  <Phone className="text-white" size={24} />
-                </div>
-                <div>
-                  <h4 className="font-bold text-lg mb-1 text-gray-900">Phone</h4>
-                  <p className="text-gray-600">+1-724-607-8057</p>
-              
-                </div>
-              </motion.div>
-
-              <motion.div
-                whileHover={{ x: 10 }}
-                className="flex items-start gap-4 group"
-              >
-                <div className="w-14 h-14 bg-gradient-to-br from-emerald-500 to-teal-500 rounded-2xl flex items-center justify-center flex-shrink-0 shadow-lg group-hover:shadow-xl transition-shadow">
-                  <MapPin className="text-white" size={24} />
-                </div>
-                <div>
-                  <h4 className="font-bold text-lg mb-1 text-gray-900">Address</h4>
-                  <p className="text-gray-600">123 Healthcare Boulevard</p>
-                  <p className="text-gray-600">Medical District, NY 10001</p>
-                </div>
+                <a 
+                  href="https://wa.me/919478642094" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="flex items-start gap-4 w-full"
+                >
+                  <div className="w-14 h-14 bg-gradient-to-br from-green-500 to-emerald-500 rounded-2xl flex items-center justify-center flex-shrink-0 shadow-lg group-hover:shadow-xl transition-shadow">
+                    <MessageCircle className="text-white" size={24} />
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-lg mb-1 text-gray-900">WhatsApp</h4>
+                    <p className="text-gray-600">+91-9478642094</p>
+                  </div>
+                </a>
               </motion.div>
             </div>
           </motion.div>

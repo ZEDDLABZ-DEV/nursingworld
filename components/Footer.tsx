@@ -1,10 +1,8 @@
 'use client';
 
-import { Heart, Facebook, Twitter, Instagram, Linkedin, Youtube, GraduationCap, Mail, Phone } from 'lucide-react';
+import { Heart, Facebook, Twitter, Instagram, Linkedin, Youtube, GraduationCap, Mail, MessageCircle } from 'lucide-react';
 
 export default function Footer() {
-  const currentYear = new Date().getFullYear();
-
   const footerLinks = {
     courses: [
       'Fundamentals of Nursing',
@@ -70,11 +68,11 @@ export default function Footer() {
                 </div>
                 <span className="text-sm font-medium">support@thenursingworld.com</span>
               </a>
-              <a href="tel:+17246078057" className="flex items-center gap-3 text-gray-600 hover:text-purple-600 transition-colors group">
-                <div className="w-10 h-10 bg-purple-100 rounded-lg flex items-center justify-center group-hover:bg-purple-200 transition-colors">
-                  <Phone size={18} className="text-purple-600" />
+              <a href="https://wa.me/919478642094" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-gray-600 hover:text-green-600 transition-colors group">
+                <div className="w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center group-hover:bg-green-200 transition-colors">
+                  <MessageCircle size={18} className="text-green-600" />
                 </div>
-                <span className="text-sm font-medium">+1-724-607-8057</span>
+                <span className="text-sm font-medium">+91-9478642094</span>
               </a>
             </div>
 
@@ -139,11 +137,8 @@ export default function Footer() {
         <div className="border-t border-gray-200 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-gray-600 text-center md:text-left">
-              © {currentYear} The Nursing World. All rights reserved.
+              Copyright © 2026 GE Academy Ltd, All rights reserved.
             </p>
-            {/* <p className="text-gray-600 flex items-center gap-2">
-              Made with <Heart size={18} className="text-red-500 fill-current animate-pulse" /> for nurses worldwide
-            </p> */}
           </div>
         </div>
       </div>
