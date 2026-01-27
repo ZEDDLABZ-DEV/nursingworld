@@ -1,6 +1,7 @@
 'use client';
 
 import { Heart, Facebook, Twitter, Instagram, Linkedin, Youtube, GraduationCap, Mail, MessageCircle } from 'lucide-react';
+import Link from 'next/link';
 
 export default function Footer() {
   const footerLinks = {
@@ -26,6 +27,7 @@ export default function Footer() {
       'Careers',
       'Contact',
       'Privacy Policy',
+      'Data Safety',
       'Terms of Service',
     ],
   };
@@ -124,9 +126,28 @@ export default function Footer() {
             <ul className="space-y-3">
               {footerLinks.company.map((link, index) => (
                 <li key={index}>
-                  <a href="#" className="text-gray-600 hover:text-pink-600 hover:translate-x-1 inline-block transition-all duration-200">
-                    {link}
-                  </a>
+                  {link === 'Privacy Policy' ? (
+                    <Link
+                      href="/privacy-policy"
+                      className="text-gray-600 hover:text-pink-600 hover:translate-x-1 inline-block transition-all duration-200"
+                    >
+                      {link}
+                    </Link>
+                  ) : link === 'Data Safety' ? (
+                    <Link
+                      href="/data-safety"
+                      className="text-gray-600 hover:text-pink-600 hover:translate-x-1 inline-block transition-all duration-200"
+                    >
+                      {link}
+                    </Link>
+                  ) : (
+                    <a
+                      href="#"
+                      className="text-gray-600 hover:text-pink-600 hover:translate-x-1 inline-block transition-all duration-200"
+                    >
+                      {link}
+                    </a>
+                  )}
                 </li>
               ))}
             </ul>
