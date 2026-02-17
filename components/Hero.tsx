@@ -39,9 +39,9 @@ export default function Hero() {
                   <ArrowRight className="inline-block ml-2 group-hover:translate-x-1 transition-transform" size={18} />
                 </button>
               </a>
-              <a href="https://thenursingworld.com/signup/" target="_blank" rel="noopener noreferrer">
+              <a href="/#request-demo">
                 <button className="bg-white text-blue-600 px-6 py-3 rounded-full font-semibold border-2 border-blue-600 hover:bg-blue-50 hover:scale-105 transition-all duration-300 shadow-lg text-sm lg:text-base">
-                  Learn More
+                  Request a Demo
                 </button>
               </a>
             </div>

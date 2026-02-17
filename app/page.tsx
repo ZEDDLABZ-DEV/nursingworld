@@ -7,6 +7,7 @@ import Courses from "@/components/Courses";
 import SuccessStories from "@/components/SuccessStories";
 import Testimonials from "@/components/Testimonials";
 import Stats from "@/components/Stats";
+import RequestDemo from "@/components/RequestDemo";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 
@@ -22,6 +23,7 @@ export default function Home() {
       <Courses />
       <SuccessStories />
       <Testimonials />
+      <RequestDemo />
       <Contact />
       <Footer />
     </main>
